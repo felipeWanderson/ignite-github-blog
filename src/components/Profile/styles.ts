@@ -6,7 +6,7 @@ export const ProfileContainer = styled.div`
   height: 13.25rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   background: ${(props) => props.theme['gray-700']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -26,6 +26,7 @@ export const Avatar = styled.div`
   }
 `
 export const ProfileInfo = styled.div`
+  flex: 1;
   header {
     display: flex;
     align-items: center;

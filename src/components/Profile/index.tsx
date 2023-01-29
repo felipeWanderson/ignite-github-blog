@@ -7,43 +7,39 @@ import {
 } from './styles'
 import { FaGithub, FaBuilding, FaUserFriends } from 'react-icons/fa'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
+import { ProfileContext } from '../../context/ProfileContex'
+import { useContext } from 'react'
 
 export function Profile() {
+  const { user } = useContext(ProfileContext)
   return (
     <ProfileContainer>
       <Avatar>
-        <img
-          src="https://avatars.githubusercontent.com/u/18500523?v=4"
-          alt=""
-        />
+        <img src={user.avatarURL} alt="" />
       </Avatar>
       <ProfileInfo>
         <header>
-          <h2>Felipe Leal</h2>
-          <a href="https://github.com/felipeWanderson">
+          <h2>{user.name}</h2>
+          <a href={user.githubLink}>
             <span>GITHUB</span>
             <BsBoxArrowUpRight />
           </a>
         </header>
 
-        <p>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </p>
+        <p>{user.bio}</p>
 
         <ProfileInfoLinks>
           <ProfileInfoLinksItem>
             <FaGithub />
-            <span>felipeWanderson</span>
+            <span>{user.username}</span>
           </ProfileInfoLinksItem>
           <ProfileInfoLinksItem>
             <FaBuilding />
-            <span>Compass UOL</span>
+            <span>{user.company}</span>
           </ProfileInfoLinksItem>
           <ProfileInfoLinksItem>
             <FaUserFriends />
-            <span>32 Seguidores</span>
+            <span>{user.followers} Seguidores</span>
           </ProfileInfoLinksItem>
         </ProfileInfoLinks>
       </ProfileInfo>
