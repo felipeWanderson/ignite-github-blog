@@ -9,6 +9,7 @@ export const SearchBoxContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin: 0 auto;
+  margin-top: 72px;
 `
 export const SearchBoxHeader = styled.div`
   display: flex;
