@@ -3,21 +3,23 @@ import styled from 'styled-components'
 export const HeaderContainer = styled.header`
   width: 100%;
 
-  background-image: url('/src/assets/background-header.svg');
+  background-image: url('/src/assets/listras-header.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 
   height: 18.5rem;
-  background-color: #0b1b2b;
+  background-color: #0b2037;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  margin: 0 auto;
 `
 export const HeaderContent = styled.div`
   width: 100%;
   max-width: 896px;
-  margin-top: 4rem;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 `
