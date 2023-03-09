@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const SearchBoxContainer = styled.div`
   width: 100%;
   max-width: 54rem;
-  height: 13.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
