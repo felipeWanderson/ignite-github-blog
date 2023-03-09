@@ -29,19 +29,19 @@ export const SearchBoxForm = styled.form`
     align-items: center;
     padding: 12px 16px;
     gap: 8px;
-    background: #040f1a;
+    background: ${(props) => props.theme['gray-900']};
 
-    border: 1px solid #1c2f41;
+    border: 1px solid ${(props) => props.theme['gray-500']};
     border-radius: 6px;
 
     input {
       width: 100%;
       border: none;
       background: transparent;
-      color: #3a536b;
+      color: ${(props) => props.theme['gray-400']};
 
       &::placeholder {
-        color: #3a536b;
+        color: ${(props) => props.theme['gray-400']};
       }
       &:focus {
         border: none;

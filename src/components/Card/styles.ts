@@ -1,11 +1,18 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(Link)`
   max-width: 416px;
   width: 100%;
-  background: #112131;
+  background: ${(props) => props.theme['gray-600']};
   border-radius: 10px;
   padding: 32px;
+  text-decoration: none;
+  border: 1px solid ${(props) => props.theme['gray-600']};
+
+  &:hover {
+    border: 1px solid ${(props) => props.theme['gray-200']};
+  }
 `
 export const CardHeader = styled.div`
   display: flex;
@@ -19,13 +26,13 @@ export const CardTitle = styled.strong`
   font-weight: 700;
   font-size: 20px;
   line-height: 160%;
-  color: #e7edf4;
+  color: ${(props) => props.theme.white};
 `
 export const PublishedAt = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 160%;
-  color: #7b96b2;
+  color: ${(props) => props.theme['gray-300']};
 `
 export const CardBody = styled.div`
   width: 100%;
@@ -34,6 +41,6 @@ export const CardBody = styled.div`
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
-  color: #afc2d4;
+  color: ${(props) => props.theme['gray-200']};
   text-overflow: ellipsis;
 `
