@@ -8,7 +8,7 @@ import {
 
 export function Card() {
   return (
-    <CardContainer>
+    <CardContainer to="/post/1">
       <CardHeader>
         <CardTitle>JavaScript data types and data structures</CardTitle>
         <PublishedAt>Há 1 dia</PublishedAt>
