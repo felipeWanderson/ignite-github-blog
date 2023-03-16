@@ -1,3 +1,6 @@
+import { FocusEvent } from 'react'
+import { Input } from '../Input'
+
 import {
   Quantity,
   SearchBoxContainer,
@@ -6,17 +9,24 @@ import {
   Title,
 } from './styles'
 
-export function SearchBox() {
+interface SearchBoxProps {
+  searchPosts: (event: FocusEvent<HTMLInputElement>) => void
+  numberItens: number
+}
+export function SearchBox({ searchPosts, numberItens }: SearchBoxProps) {
   return (
     <SearchBoxContainer>
       <SearchBoxHeader>
         <Title>Publicação</Title>
-        <Quantity>6 publicações</Quantity>
+        <Quantity>{numberItens || 0} publicações</Quantity>
       </SearchBoxHeader>
       <SearchBoxForm>
-        <div>
-          <input type="text" placeholder="Buscar conteúdo" />
-        </div>
+        <Input
+          type="text"
+          placeholder="Buscar conteúdo"
+          name="repo"
+          handleOnBlur={searchPosts}
+        />
       </SearchBoxForm>
     </SearchBoxContainer>
   )

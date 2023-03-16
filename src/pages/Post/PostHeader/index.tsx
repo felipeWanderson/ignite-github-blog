@@ -19,11 +19,11 @@ export function PostHeader() {
   return (
     <PostHeaderContainer>
       <PostHeaderLinks>
-        <Link to="/home">
+        <Link to="/">
           <FaAngleLeft size={20} />
           Voltar
         </Link>
-        <Link to="/home">
+        <Link to="/">
           VER NO GITHUB
           <FaExternalLinkAlt size={15} />
         </Link>

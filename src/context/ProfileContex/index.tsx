@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
+import { USERNAME } from '../../constants'
 import { api } from '../../lib/axios'
 
 interface User {
@@ -21,7 +22,6 @@ interface ProfileProviderProps {
 }
 
 export const ProfileContext = createContext({} as ProfileContextType)
-const USERNAME = 'felipeWanderson'
 
 export function ProfileProvider({ children }: ProfileProviderProps) {
   const [user, setUser] = useState({} as User)

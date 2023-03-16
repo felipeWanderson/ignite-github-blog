@@ -1,3 +1,5 @@
+import { formatDistanceToNowStrict } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 import {
   CardBody,
   CardContainer,
@@ -6,18 +8,31 @@ import {
   PublishedAt,
 } from './styles'
 
-export function Card() {
+type Data = {
+  id: number
+  title: string
+  body: string
+  createdAt: string
+}
+interface CardProps {
+  data: Data
+}
+export function Card({ data }: CardProps) {
+  const body = data?.body.slice(0, 147) + '...'
+
+  const formatDistanceToNow = (data: string) => {
+    return formatDistanceToNowStrict(new Date(data), {
+      addSuffix: true,
+      locale: ptBR,
+    })
+  }
   return (
-    <CardContainer to="/post/1">
+    <CardContainer to={`/post/${data.id}`}>
       <CardHeader>
-        <CardTitle>JavaScript data types and data structures</CardTitle>
-        <PublishedAt>Há 1 dia</PublishedAt>
+        <CardTitle>{data.title}</CardTitle>
+        <PublishedAt>{formatDistanceToNow(data.createdAt)}</PublishedAt>
       </CardHeader>
-      <CardBody>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in...
-      </CardBody>
+      <CardBody>{body}</CardBody>
     </CardContainer>
   )
 }
