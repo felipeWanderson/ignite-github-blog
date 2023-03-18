@@ -14,8 +14,23 @@ import {
   PostHeaderTitle,
   PostHeaderInfoItem,
 } from './styles'
+import { formatDistanceToNow } from '../../../utils'
 
-export function PostHeader() {
+interface PostData {
+  id: number
+  title: string
+  createdAt: string
+  comments: number
+  postGithubUrl: string
+  body: string
+  owner: string
+}
+
+interface PostHeaderProps {
+  post: PostData
+}
+
+export function PostHeader({ post }: PostHeaderProps) {
   return (
     <PostHeaderContainer>
       <PostHeaderLinks>
@@ -23,26 +38,24 @@ export function PostHeader() {
           <FaAngleLeft size={20} />
           Voltar
         </Link>
-        <Link to="/">
+        <Link to={post?.postGithubUrl}>
           VER NO GITHUB
           <FaExternalLinkAlt size={15} />
         </Link>
       </PostHeaderLinks>
-      <PostHeaderTitle>
-        JavaScript data types and data structures
-      </PostHeaderTitle>
+      <PostHeaderTitle>{post?.title}</PostHeaderTitle>
       <PostHeaderInfo>
         <PostHeaderInfoItem>
           <FaGithub size={18} color="#3A536B" />
-          <span>felipeWanderson</span>
+          <span>{post?.owner}</span>
         </PostHeaderInfoItem>
         <PostHeaderInfoItem>
           <FaCalendarDay size={18} color="#3A536B" />
-          <span>Há 1 dia</span>
+          <span>{post?.createdAt && formatDistanceToNow(post?.createdAt)}</span>
         </PostHeaderInfoItem>
         <PostHeaderInfoItem>
           <FaComment size={18} color="#3A536B" />
-          <span>5 comentários</span>
+          <span>{post?.comments} comentários</span>
         </PostHeaderInfoItem>
       </PostHeaderInfo>
     </PostHeaderContainer>

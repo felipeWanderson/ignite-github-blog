@@ -1,5 +1,4 @@
-import { formatDistanceToNowStrict } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
+import { formatDistanceToNow } from '../../utils'
 import {
   CardBody,
   CardContainer,
@@ -20,12 +19,6 @@ interface CardProps {
 export function Card({ data }: CardProps) {
   const body = data?.body.slice(0, 147) + '...'
 
-  const formatDistanceToNow = (data: string) => {
-    return formatDistanceToNowStrict(new Date(data), {
-      addSuffix: true,
-      locale: ptBR,
-    })
-  }
   return (
     <CardContainer to={`/post/${data.id}`}>
       <CardHeader>
